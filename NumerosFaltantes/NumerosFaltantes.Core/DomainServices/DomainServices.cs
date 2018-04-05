@@ -37,6 +37,16 @@ namespace NumerosFaltantes.Core.DomainServices
                     }
                 }
             });
+            brr.ToList().ForEach(y =>
+            {
+                if (!_vectores.numeroFaltante.Contains(y.ToString()))
+                {
+                    if ((brr.Where(m => m == y).Count()) != (arr.Where(t => t == y).Count()))
+                    {
+                        _vectores.numeroFaltante = string.IsNullOrEmpty(_vectores.numeroFaltante) ? y.ToString() : _vectores.numeroFaltante + " " + y.ToString();
+                    }
+                }
+            });
             string[] rpt_Temp = _vectores.numeroFaltante.Split(' ');
             return Array.ConvertAll(rpt_Temp, Int32.Parse);
         }
