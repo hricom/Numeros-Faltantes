@@ -27,6 +27,7 @@ namespace NumerosFaltantes.Core.DomainServices
             // Objeto del tipo entidad vectores
             Vectores _vectores = new Vectores();
             _vectores.numeroFaltante = string.Empty;
+            // Se validan valores en la primera lista.
             arr.ToList().ForEach(x =>
             {
                 if (!_vectores.numeroFaltante.Contains(x.ToString()))
@@ -37,6 +38,7 @@ namespace NumerosFaltantes.Core.DomainServices
                     }
                 }
             });
+            // Se validan valores en la segunda lista.
             brr.ToList().ForEach(y =>
             {
                 if (!_vectores.numeroFaltante.Contains(y.ToString()))
